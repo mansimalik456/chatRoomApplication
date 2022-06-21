@@ -30,32 +30,25 @@ function showMessage(message)
 }
 
 $(document).ready((e)=>{
-
    $("#login").click(()=>{
-
        let name=$("#name-value").val()
        localStorage.setItem("name",name)
        $("#name-title").html(`Welcome , <b>${name} </b>`)
        connect();
-
    })
-
    $("#send-btn").click(()=>{
     sendMessage()
    })
 
 $("#logout").click(()=>{
-
     localStorage.removeItem("name")
     if(stompClient!==null)
     {
         stompClient.disconnect()
-
-         $("#name-from").removeClass('d-none')
-         $("#chat-room").addClass('d-none')
-         console.log(stompClient)
+        $("#name-from").removeClass('d-none')
+        $("#chat-room").addClass('d-none')
+        console.log(stompClient)
     }
-
 })
 
 })
